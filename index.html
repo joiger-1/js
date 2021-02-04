@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2 кнопки</title>
+</head>
+<body>
+	<div class="block">
+		<a id="btn2" href="">
+			<button class="btn btn2">Рандомный сайт</button>
+		</a>
+		<button class="btn btn1" onclick="changeStyle()">Смена стиля</button>
+	</div>
+	
+
+	<style>
+		body{
+			background-color: #525;
+		}
+		.btn{
+			width: 300px;
+			height: 150px;
+		}
+		.btn2{
+			float: left;
+		}
+		.btn1{
+			float: right;
+		}
+		button{
+			background-color: #636;
+			color: #afa;
+		}
+	</style>
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) {
+		  return Math.floor(Math.random() * (max - min)) + min;
+		}
+
+		function changeStyle(){
+			document.querySelector("body").style.backgroundColor  = "#" + getRandomInt(0, 9) + getRandomInt(0, 9) + getRandomInt(0, 9);
+			let btnCl = "#" + getRandomInt(0, 9) + getRandomInt(0, 9) + getRandomInt(0, 9);
+			document.querySelector(".btn1").style.backgroundColor  = btnCl;
+			document.querySelector(".btn2").style.backgroundColor  = btnCl;
+		}
+
+		let src = [
+				"https://readmanga.live/list/genre/fantasy?sortType=updated",
+				"https://multilandia.tv/ru/",
+				"https://www.youtube.com/channel/UC130JquAAdwXyJ19M9YVX-w",
+				"https://www.youtube.com"
+				];
+
+		let btn2 = document.querySelector("#btn2");
+		btn2.setAttribute("href", src[getRandomInt(0, 4)]);
+	</script>
+</body>
+</html>
